@@ -14,7 +14,7 @@ class BrandsController < ApplicationController
     if brand = Brand.find_by_id(params[:id])
       brand.destroy
       #render :json => JSON("deleted" => params[:id])
-      redirect_to "http://localhost:3000/"
+      redirect_to FRONTEND
     else
       render :json => JSON("error" => "Not found"), :status => 404
     end
@@ -27,7 +27,7 @@ class BrandsController < ApplicationController
     brand.country = params[:country]
     brand.image = params[:image]
     brand.save
-    redirect_to "http://localhost:3000/"
+    redirect_to FRONTEND
     #render :json => JSON("status" => 'ok')
   end
 
